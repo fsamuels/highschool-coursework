@@ -1,0 +1,5 @@
+#ifndef _MYARRAY_
+#define _MYARRAY_
+#include "myarray.h"
+#include "myarray.cpp"
+#endif

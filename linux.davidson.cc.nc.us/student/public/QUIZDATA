@@ -1,0 +1,5 @@
+#ifndef _QUIZDATA_
+#define _QUIZDATA_
+#include "quizdata.h"
+#include "quizdata.cpp"
+#endif

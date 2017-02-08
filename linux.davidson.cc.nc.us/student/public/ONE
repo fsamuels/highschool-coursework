@@ -1,0 +1,23 @@
+// ----------------------------------------------------------------
+// file name: one
+// Define and implement a simple generic class named one
+// ----------------------------------------------------------------
+
+template<class Type>
+class one 
+{ // class precondition: Any Type argument class must have cout << defined 
+public:
+  one(Type initValue)
+  {
+    value = initValue;
+  }
+
+  void display()
+  { // pre: the Type can be output with cout <<
+    cout << "The value: " << value << endl;
+  }
+
+private:
+  Type value;
+};
+

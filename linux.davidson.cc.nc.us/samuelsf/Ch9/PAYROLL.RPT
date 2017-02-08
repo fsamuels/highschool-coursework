@@ -1,0 +1,9 @@
+   Pay    Hours    Gross    Income     FICA        Net   Employee
+  Rate   Worked      Pay       Tax      Tax        Pay   Name
+======    =====    =====   =======   ======      =====   =======
+ 10.45       38    397.1     26.16    30.38     340.56   Greene, Ross
+    12       42      516     89.42    39.47     387.11   Kristner, Mary
+  9.99     30.5   304.69     36.34    23.31     245.04   Nicholson, Melissa
+ 11.57       40    462.8     63.49     35.4     363.91   Woodley, Samuel
+          -----    -----     -----    -----      -----   
+Totals    150.5  1680.59    215.41   128.56    1336.62   

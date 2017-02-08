@@ -1,0 +1,5 @@
+#ifndef _IREDEV_
+#define _IREDEV_
+#include "irdev.h"
+#include "irdev.cpp"
+#endif

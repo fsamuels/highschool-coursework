@@ -1,0 +1,5 @@
+#ifndef _CDSTUFF_
+#define _CDSTUFF_
+#include "cdstuff.h"
+#include "cdstuff.cpp"
+#endif

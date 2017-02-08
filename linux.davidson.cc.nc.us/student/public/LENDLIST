@@ -1,0 +1,5 @@
+#ifndef _LENDLIST_
+#define _LENDLIST_
+#include "lendlist.h"
+#include "lendlist.cpp"
+#endif

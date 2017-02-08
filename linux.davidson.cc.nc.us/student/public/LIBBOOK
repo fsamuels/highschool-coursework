@@ -1,0 +1,6 @@
+// file name: libbook
+#ifndef _LIBBOOK_   // Prevent duplicate compiles
+#define _LIBBOOK_
+#include "libbook.h"    // for class libraryBook definition
+#include "libbook.cpp"  // for class membe functions implementations
+#endif

@@ -1,0 +1,5 @@
+#ifndef _SITE_
+#define _SITE_
+#include "site.h"
+#include "site.cpp"
+#endif

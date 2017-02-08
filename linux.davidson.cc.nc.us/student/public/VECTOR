@@ -1,0 +1,258 @@
+#ifndef _VECTOR_    // Avoid duplicate declaration and implementation
+#define _VECTOR_
+#include <iostream.h> // for cout <<
+#include <stdlib.h>  // for exit(0)
+
+////////////////////////////////////////////////////////
+// class vector definition /////////////////////////////
+////////////////////////////////////////////////////////
+
+template<class VectorElementType>
+class vector {
+public:
+  vector();
+  vector(int initCapacity);
+  vector(int initCapacity, VectorElementType initialValue);
+  vector(const vector<VectorElementType> & source);
+  ~vector();
+  void resize(int newCapacity);
+
+  VectorElementType& operator [] (int subscript);
+  // Allow access to elements and the ability to have x[1] = 0.0;
+
+  VectorElementType& at (int subscript);
+  const VectorElementType& at (int subscript) const;
+  
+  int capacity() const;
+  
+  const VectorElementType& operator [] (int subscript) const;
+  // Allow for const reference parameters
+
+  vector& operator = (const vector<VectorElementType>& right)
+  { 
+    if( this != &right )  // Skip deleting when aVec == aVec
+    {
+      // first deallocate memory (x is a pointer to a collection)
+      delete [] x;
+
+      // then copy the capacity data member
+      this->my_capacity = right.my_capacity;
+
+      // and allocate precisely the amount of memory to store right's elements
+      this->x = new VectorElementType [this->my_capacity];
+
+      // and finally copy the individual items from the right to the left
+      for(int j = 0; j < this->my_capacity; j++)
+      {
+        this->x[j] = right.x[j];
+      }
+    }
+    return *this;
+  }
+
+private:
+  VectorElementType* x;
+  int my_capacity;
+};
+
+
+////////////////////////////////////////////////////////
+// implement the vector member functions ///////////////
+////////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------
+//------------------ Implement class vector --------------------------
+//--------------------------------------------------------------------
+template<class VectorElementType>
+vector<VectorElementType>::vector()
+{ // default vector constructor has a size of 0;
+  my_capacity = 0;
+  x = 0;
+}
+
+template<class VectorElementType>
+vector<VectorElementType>::vector(int initCapacity)
+{
+  my_capacity = initCapacity;
+  x = new VectorElementType[my_capacity];
+  if(x == 0)
+  {
+    cout << "**Error** Not enough memory to create vector of size "
+         << my_capacity << endl;
+    cout << "**Program terminated**" << endl;
+    exit(0);
+  }
+}
+
+template<class VectorElementType>
+vector<VectorElementType>::vector(int initCapacity, VectorElementType initialValue)
+{
+  my_capacity = initCapacity;
+  x = new VectorElementType[my_capacity];
+  if(x == 0)
+  {
+    cout << "**Error** Not enough memory to create vector of size "
+         << my_capacity << endl;
+    cout << "**Program terminated**" << endl;
+    exit(0);
+  }
+
+  // Initial all element to the intial value (the 2nd argument)
+  for(int j = 0; j < my_capacity; j++)
+    x[j] = initialValue;
+}
+
+template<class VectorElementType>
+void vector<VectorElementType>::resize(int newCapacity)
+{
+   VectorElementType * temp;
+   temp = new VectorElementType[newCapacity];
+   if(temp == 0)
+   {
+     cout << "**Error** Not enough memory to create array of size "
+          << my_capacity << endl;
+     cout << "**Program terminated**" << endl;
+     exit(0);
+   }
+   
+   // copy old elements into a new
+   int n(my_capacity);
+   if(newCapacity < my_capacity)
+	  n = newCapacity;
+   for(int j = 0; j < n; j++)
+   {
+      temp[j] = x[j];
+   }
+   
+   // careful, we could be resizing a vector of size 0
+   if(x)
+     delete [ ] x;
+   x = temp;
+   my_capacity = newCapacity;
+}
+
+template<class VectorElementType>
+vector<VectorElementType>::vector(const vector< VectorElementType > & source)
+{
+  // Copy the capacity data member
+  my_capacity = source.my_capacity;
+  
+  // Allocate the memory for the new vector
+  x = new VectorElementType[my_capacity];
+  if(x == 0) 
+  {
+    cout << "**Error** Can't copy array of size " << my_capacity << endl;
+    cout << "**Program terminated**" << endl;
+    exit(0);
+  }
+
+  // and finally, copy all values from source to destination
+  for(int j = 0; j <= my_capacity; j++)
+  {
+     x[j] = source.x[j];
+  }
+}
+
+template<class VectorElementType>
+vector<VectorElementType>::~vector()
+{
+  if(x)
+    delete [] x;
+}
+
+template<class VectorElementType>
+VectorElementType & vector<VectorElementType>::operator [] (int subscript)
+{ // Terminate program if subscript is not in range
+
+  if((subscript < 0) || (subscript >= my_capacity))
+  {
+    if(my_capacity == 0)
+    {
+      cout << "\n**Error** This vector has capacity == 0 " << endl;
+    }
+    else
+    {
+      cout << "\n**Error** Subscript [" << subscript
+           << "] is not in the range of 0 through "
+           << (my_capacity-1) << endl;
+    }
+    cout << "**Program terminated**" << endl;
+    exit(0);
+  }
+  return x[subscript];
+}
+
+template<class VectorElementType>
+const VectorElementType& vector<VectorElementType>::operator [] (int subscript) const
+{ // Allow for const & parameters
+  // Terminate program if subscript is not in range
+  if((subscript < 0) || (subscript >= my_capacity))
+  {
+    if(my_capacity == 0)
+    {
+      cout << "\n**Error** This vector has capacity == 0 " << endl;
+    }
+    else
+    {
+      cout << "\n**Error** Subscript [" << subscript
+           << "] is not in the range of 0 through "
+           << (my_capacity-1) << endl;
+    }
+    cout << "**Program terminated**" << endl;
+    exit(0);
+  }
+  return x[subscript];
+}
+
+template<class VectorElementType>
+VectorElementType& vector<VectorElementType>::at (int subscript)
+{ // Terminate program if subscript is not in range
+
+  if((subscript < 0) || (subscript >= my_capacity))
+  {
+    if(my_capacity == 0)
+    {
+      cout << "\n**Error** This vector has capacity == 0 " << endl;
+    }
+    else
+    {
+      cout << "\n**Error** Subscript [" << subscript
+           << "] is not in the range of 0 through "
+           << (my_capacity-1) << endl;
+    }
+    cout << "**Program terminated**" << endl;
+    exit(0);
+  }
+  return x[subscript];
+}
+
+template<class VectorElementType>
+const VectorElementType& vector<VectorElementType>::at (int subscript) const
+{ // Allow for const & parameters
+  // Terminate program if subscript is not in range
+  if((subscript < 0) || (subscript >= my_capacity))
+  {
+    if(my_capacity == 0)
+    {
+      cout << "\n**Error** This vector has capacity == 0 " << endl;
+    }
+    else
+    {
+      cout << "\n**Error** Subscript [" << subscript
+           << "] is not in the range of 0 through "
+           << (my_capacity-1) << endl;
+    }
+    cout << "**Program terminated**" << endl;
+    exit(0);
+  }
+  return x[subscript];
+}
+ 
+
+template<class VectorElementType>
+int vector<VectorElementType>::capacity() const
+{
+  return my_capacity;
+}
+
+#endif  // ifndef VECTOR

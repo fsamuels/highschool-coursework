@@ -1,0 +1,6 @@
+#ifndef _JUKEBOX_
+#define _JUKEBOX_
+#include "jukebox.h"
+#include "jukebox.cpp"
+#endif
+

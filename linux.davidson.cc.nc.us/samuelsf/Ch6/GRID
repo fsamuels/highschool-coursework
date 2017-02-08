@@ -1,0 +1,5 @@
+#ifndef GRID
+#define GRID
+#include "/student/csc134HA/samuelsf/Ch6/grid.h"
+#include "/student/csc134HA/samuelsf/Ch6/grid.cpp"
+#endif

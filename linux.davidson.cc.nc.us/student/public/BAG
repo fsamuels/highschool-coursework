@@ -1,0 +1,5 @@
+#ifndef _BAG_
+#define _BAG_
+#include "bag.h"
+#include "bag.cpp"
+#endif

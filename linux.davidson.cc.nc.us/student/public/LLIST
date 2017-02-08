@@ -1,0 +1,5 @@
+#ifndef _LLIST_
+#define _LLIST_
+#include "llist.h"
+#include "llist.cpp"
+#endif

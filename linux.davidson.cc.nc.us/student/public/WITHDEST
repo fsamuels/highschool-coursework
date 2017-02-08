@@ -1,0 +1,7 @@
+// filename: withdest.h
+#ifndef _WITHDEST_
+#define _WITHDEST_
+#include "withdest.h"
+#include "withdest.cpp"
+#endif
+

@@ -1,0 +1,5 @@
+#ifndef _TRACKSELECTOR_
+#define _TRACKSELECTOR_
+#include "tracksel.h"
+#include "tracksel.cpp"
+#endif

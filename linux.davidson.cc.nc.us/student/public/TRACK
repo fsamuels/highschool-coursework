@@ -1,0 +1,5 @@
+#ifndef _TRACK_
+#define _TRACK_
+#include "track.h"
+#include "track.cpp"
+#endif

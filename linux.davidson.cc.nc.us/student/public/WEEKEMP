@@ -1,0 +1,5 @@
+#ifndef _WEEKEMP_
+#define _WEEKEMP_
+#include "weekemp.h"
+#include "weekemp.cpp"
+#endif

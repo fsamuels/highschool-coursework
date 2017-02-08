@@ -1,0 +1,5 @@
+#ifndef GRID
+#define GRID
+#include "grid.h"
+#include "grid.cpp"
+#endif

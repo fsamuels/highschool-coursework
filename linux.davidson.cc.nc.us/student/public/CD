@@ -1,0 +1,5 @@
+#ifndef _CD_
+#define _CD_
+#include "cd.h"
+#include "cd.cpp"
+#endif

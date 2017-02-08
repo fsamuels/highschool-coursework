@@ -1,0 +1,5 @@
+#ifndef _CARDREAD_
+#define _CARDREAD_
+#include "cardread.h"
+#include "cardread.cpp"
+#endif

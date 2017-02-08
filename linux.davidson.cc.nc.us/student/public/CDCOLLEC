@@ -1,0 +1,6 @@
+#ifndef _CDCOLLEC_
+#define _CDCOLLEC_
+#include "cdcollec.h"
+#include "cdcollec.cpp"
+#endif
+

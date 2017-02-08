@@ -1,0 +1,5 @@
+#ifndef _LTCOMPLX_
+#define _LTCOMPLX_
+#include "ltcomplx.h"
+#include "ltcomplx.cpp"
+#endif 

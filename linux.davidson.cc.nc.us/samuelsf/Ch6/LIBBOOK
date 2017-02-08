@@ -1,0 +1,6 @@
+// file name: libbook
+#ifndef _LIBBOOK_   // Prevent duplicate compiles
+#define _LIBBOOK_
+#include "/student/csc134HA/samuelsf/Ch6/libbook.h"
+#include "/student/csc134HA/samuelsf/Ch6/libbook.cpp"
+#endif

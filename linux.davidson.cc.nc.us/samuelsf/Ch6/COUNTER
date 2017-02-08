@@ -1,0 +1,6 @@
+// This is an instance of the guarded action pattern of Chapter 7
+#ifndef _COUNTER_   
+#define _COUNTER_
+#include "/student/csc134HA/samuelsf/Ch6/counter.h"
+#include "/student/csc134HA/samuelsf/Ch6/counter.cpp"
+#endif

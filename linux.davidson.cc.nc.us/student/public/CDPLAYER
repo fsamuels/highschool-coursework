@@ -1,0 +1,5 @@
+#ifndef _CDPLAYER_
+#define _CDPLAYER_
+#include "cdplayer.h"
+#include "cdplayer.cpp"
+#endif

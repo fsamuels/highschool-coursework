@@ -1,0 +1,149 @@
+#ifndef MATRIX_H   // Avoid duplicate definition of class matrix
+#define MATRIX_H
+#include "vector"
+
+template <class MatrixType>
+class matrix {
+public:
+//--constuctors
+  matrix();
+  // post: Memory is allocated for an matrix of MatrixType elements
+
+  matrix(int nRows, int nCols);
+
+  matrix(int nRows, int nCols, MatrixType initValue);
+
+  matrix(const matrix<MatrixType> & source);
+  // for pass by value
+
+//--modifiers
+  void resize(int newRows, int newCols);
+  
+  vector<MatrixType> & operator[] (int subscript);
+
+//--accessors
+  int rowCapacity() const;
+  int columnCapacity() const;
+  const vector<MatrixType> & operator[] (int subscript) const;
+  
+private:
+  // Use an array of arrays to store tabular data
+  vector< vector<MatrixType> > my_matrix; // A vector of vectors
+  int my_rowCapacity;
+  int my_colCapacity;
+};
+
+// Include implementation, which is required for template classes 
+// on some systems (can't have separate files)
+//----------------------------------------------------------------
+//---------------- Implement class matrix ------------------------
+//----------------------------------------------------------------
+
+template <class MatrixType>
+matrix<MatrixType>::matrix()
+{
+  my_rowCapacity = 0;
+  my_colCapacity = 0;
+}
+
+template <class MatrixType>
+matrix<MatrixType>::matrix(int nRows, int nCols)
+{
+  my_rowCapacity = nRows;
+  my_colCapacity = nCols;
+  my_matrix.resize(nRows);
+  for(int r = 0; r < my_rowCapacity; r++)
+  {
+    my_matrix[r] = vector<MatrixType> (my_colCapacity);
+  }
+
+}
+
+template <class MatrixType>
+matrix<MatrixType>::matrix(int nRows, int nCols, MatrixType initValue)
+{
+  my_rowCapacity = nRows;
+  my_colCapacity = nCols;
+  my_matrix.resize(nRows);
+  for(int r = 0; r < my_rowCapacity; r++)
+  {
+    //my_matrix[r] = new vector<MatrixType>;
+    my_matrix[r] = vector<MatrixType> (my_colCapacity, initValue);
+  }
+}
+
+template <class MatrixType>
+matrix<MatrixType>::matrix(const matrix<MatrixType> & source)
+{
+  my_rowCapacity = source.my_rowCapacity;
+  my_colCapacity = source.my_colCapacity;
+  this->my_matrix.resize(my_rowCapacity);
+  for(int r = 0; r < my_rowCapacity; r++)
+  {
+    for(int c = 0; c < my_colCapacity; c++)
+	{
+      my_matrix[r][c] = source.my_matrix[r][c];
+	}
+  }
+}
+  
+template<class MatrixType>
+vector<MatrixType> & matrix<MatrixType>::operator [] (int row)
+{
+   if(row < 0 || row >= my_rowCapacity)
+   {
+     cout << "\n**Error** First subscript [" << row << "] "
+          << "is not in the range of 0.." << my_rowCapacity-1
+          << endl;
+     cout << "**Program terminated**" << endl;
+     exit(0);
+   }
+
+   return my_matrix[row];
+}
+
+template<class MatrixType>
+const vector<MatrixType> & matrix<MatrixType>::operator [] (int row) const
+{  // Allow for const reference matrix parameters
+   if(row < 0 || row >= my_rowCapacity)
+   {
+     cout << "\n**Error** First subscript [" << row << "] "
+          << "is not in the range of 0.." << my_rowCapacity-1
+          << endl;
+     cout << "**Program terminated**" << endl;
+     exit(0);
+   }
+
+   return my_matrix[row];
+}
+
+
+template<class MatrixType>
+void matrix<MatrixType>::resize(int newRowCapacity, int newColCapacity)
+{
+  int r;
+
+  my_rowCapacity = newRowCapacity;
+  my_colCapacity = newColCapacity;
+
+  my_matrix.resize(my_rowCapacity);
+
+  for(r = 0; r < my_rowCapacity; r++) 
+  {
+    my_matrix[r].resize(my_colCapacity);
+  }
+}
+
+template <class MatrixType>
+int matrix<MatrixType>::rowCapacity() const
+{
+   return my_rowCapacity;
+}
+
+template <class MatrixType>
+int matrix<MatrixType>::columnCapacity() const
+{
+   return my_colCapacity;
+}
+
+#endif  // ifndef MATRIX_H

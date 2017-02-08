@@ -1,0 +1,6 @@
+#ifndef _QUAD_
+#define _QUAD_
+#include "quad.h"
+#include "quad.cpp"
+#endif
+

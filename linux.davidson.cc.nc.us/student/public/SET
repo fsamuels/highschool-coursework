@@ -1,0 +1,6 @@
+#ifndef _SET_
+#define _SET_
+#include "set.h"
+#include "set.cpp"
+#endif
+

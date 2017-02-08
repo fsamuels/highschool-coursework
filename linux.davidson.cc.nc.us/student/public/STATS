@@ -1,0 +1,6 @@
+#ifndef _STATS_
+#define _STATS_
+#include "stats.h"
+#include "stats.cpp"
+#endif
+

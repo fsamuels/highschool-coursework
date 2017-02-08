@@ -1,0 +1,6 @@
+#ifndef _MYFUNS_
+#define _MYFUNS_
+#include "compfun.h"
+#include "compfun.cpp"
+#endif
+

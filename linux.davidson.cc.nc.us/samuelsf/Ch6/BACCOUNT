@@ -1,0 +1,7 @@
+// file name: baccount
+#ifndef _BACCOUNT_  // The first two lines mean the two #includes
+#define _BACCOUNT_  // that follow will only be included once 
+#include "/student/csc134HA/samuelsf/Ch6/baccount.h"  
+#include "/student/csc134HA/samuelsf/Ch6/baccount.cpp" 
+#endif
+

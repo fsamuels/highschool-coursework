@@ -1,0 +1,8 @@
+// Main header for the -*- C++ -*- retail classes.
+
+#ifndef __RETAIL__
+#define __RETAIL__
+
+#include </home/carr/c++/retail.h>
+
+#endif

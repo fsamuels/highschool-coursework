@@ -1,0 +1,5 @@
+#ifndef _ELEVATOR_
+#define _ELEVATOR_
+#include "elevator.h"
+#include "elevator.cpp"
+#endif

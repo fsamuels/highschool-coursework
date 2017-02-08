@@ -1,0 +1,5 @@
+#ifndef _LENDABLE_
+#define _LENDABLE_
+#include "lendable.h"
+#include "lendable.cpp"
+#endif
